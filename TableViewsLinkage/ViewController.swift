@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         leftTableView.delegate = self
         leftTableView.dataSource = self
-        leftTableView.frame = CGRect(x: 0, y: 0, width: 80, height: h)
+        leftTableView.frame = CGRect(x: 0, y: 0, width: 50, height: h)
         leftTableView.showsVerticalScrollIndicator = false
         leftTableView.backgroundColor = UIColor(named: "x_red")
         leftTableView.tableFooterView = UIView()
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         rightTableView.delegate = self
         rightTableView.dataSource = self
-        rightTableView.frame = CGRect(x: 80, y: 0, width: w - 80, height: h)
+        rightTableView.frame = CGRect(x: 50, y: 0, width: w - 50, height: h)
         rightTableView.showsVerticalScrollIndicator = false
         rightTableView.tableFooterView = UIView()
         rightTableView.register(RightTableViewCell.self, forCellReuseIdentifier: "rightCell")
@@ -98,7 +98,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if leftTableView == tableView {
             return nil
         } else {
-            let headerView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: w-80, height: 20))
+            let headerView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: w-50, height: 20))
             let label = UILabel()
             label.frame.size = headerView.frame.size
             label.frame.origin = CGPoint(x: 0, y: 0)
@@ -147,9 +147,9 @@ class LeftTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: "leftCell")
         self.backgroundColor = UIColor(named: "x_red")
-        label.frame = self.frame
+        label.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         label.font = UIFont(name: "HelveticaNeue-Light", size: 20)
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.textColor = UIColor.white
         self.addSubview(label)
     }
@@ -163,7 +163,7 @@ class RightTableViewCell: UITableViewCell {
     var label = UILabel()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: "rightCell")
-        label.frame = self.frame
+        label.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 50, height: 80)
         label.font = UIFont(name: "HelveticaNeue-Light", size: 20)
         label.textAlignment = .center
         self.addSubview(label)
